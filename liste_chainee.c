@@ -11,9 +11,9 @@ typedef struct node
 // Functions du prof
 node *init_list(void);
 node *new_node(int val);
-node *addHead(node *head, int new_elmt);
-void addTail(node *head, int new_elmt);
-void display_list(node *head);
+node *addHead(node *list, int new_elmt);
+void addTail(node *list, int new_elmt);
+void display_list(node *list);
 
 // Perso
 // int list_empty(node *list);
@@ -71,44 +71,44 @@ node *new_node(int val)
     return n;
 }
 
-node *addHead(node *head, int new_elmt)
+node *addHead(node *list, int new_elmt)
 {
-    if (head->val == -1)
+    if (list->val == -1)
     {
-        head->val = new_elmt;
-        return head;
+        list->val = new_elmt;
+        return list;
     }
     else
     {
         node *p = new_node(new_elmt);
-        p->next = head;
-        head = p;
-        return head;
+        p->next = list;
+        list = p;
+        return list;
     }
 }
 
-void addTail(node *head, int new_elmt)
+void addTail(node *list, int new_elmt)
 {
-    if (head == NULL)
-        addHead(head, new_elmt);
+    if (list == NULL)
+        addlist(list, new_elmt);
     else
     {
-        while (head->next != NULL)
+        while (list->next != NULL)
         {
-            head = head->next;
+            list = list->next;
         }
         node *p = new_node(new_elmt);
         p->val = new_elmt;
-        head->next = p;
+        list->next = p;
     }
 }
 
-void display_list(node *head)
+void display_list(node *list)
 {
-    while (head != NULL)
+    while (list != NULL)
     {
-        printf("%d->", head->val);
-        head = head->next;
+        printf("%d->", list->val);
+        list = list->next;
     }
     printf("NULL\n");
 }
