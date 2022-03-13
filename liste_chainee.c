@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     nombre_a_ajouter = (rand() % 101);
 
-    for (i = 1; i <= 10; i++)
+    for (i = 1; i <= 100; i++)
     {
         list = addHead(list, nombre_a_ajouter + i);
     }
@@ -90,7 +90,7 @@ node *addHead(node *list, int new_elmt)
 void addTail(node *list, int new_elmt)
 {
     if (list == NULL)
-        addlist(list, new_elmt);
+        addHead(list, new_elmt);
     else
     {
         while (list->next != NULL)
